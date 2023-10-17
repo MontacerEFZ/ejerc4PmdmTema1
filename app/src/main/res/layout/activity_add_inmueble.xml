@@ -7,50 +7,55 @@
     android:orientation="vertical"
     tools:context=".AddInmuebleActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/txtDireccionInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:ems="10"
         android:hint="@string/direccion"
-        android:textSize="25sp" />
+        android:inputType="text" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtNumeroInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:ems="10"
         android:hint="@string/numero"
-        android:textSize="25sp" />
+        android:inputType="text" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtCiudadInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:ems="10"
         android:hint="@string/ciudad"
-        android:textSize="25sp" />
+        android:inputType="text" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtProvinciaInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:ems="10"
         android:hint="@string/provincia"
-        android:textSize="25sp" />
+        android:inputType="text" />
 
-    <TextView
+    <EditText
         android:id="@+id/txtCpInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:ems="10"
         android:hint="@string/cp"
-        android:textSize="25sp" />
+        android:inputType="text" />
 
     <RatingBar
         android:id="@+id/rbValoracionInmueble"

@@ -11,7 +11,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -47,13 +50,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializarLauncher() {
         launcherInmuebles = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == RESULT_OK){
                             if (result.getData() != null && result.getData().getExtras() != null){
-                                //Inmueble inmueble = (Inmueble) result.getData().getExtras().getSerializable("INMUEBLE");
-                                //listaInmuebles.add(inmueble);
+                                Inmueble inmueble = (Inmueble) result.getData().getExtras().getSerializable("INMUEBLE");
+                                listaInmuebles.add(inmueble);
+                                //Toast.makeText(MainActivity.this, inmueble.toString(), Toast.LENGTH_SHORT).show();
+                                mostrarInmueble();
                             }
                         }else{
                             Toast.makeText(MainActivity.this, "accion cancelada", Toast.LENGTH_SHORT).show();
@@ -61,5 +67,26 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private void mostrarInmueble() {
+        binding.contentMain.contenedorMain.removeAllViews();
+
+        for (Inmueble inmueble:listaInmuebles){
+            LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+
+            View inmuebleView = layoutInflater.inflate(R.layout.inmueble_file_view, null);
+
+            TextView txtDireccion = inmuebleView.findViewById(R.id.lbDireccionInmuebleView);
+            TextView txtNumero = inmuebleView.findViewById(R.id.lbNumeroInmuebleView);
+            TextView txtCiudad = inmuebleView.findViewById(R.id.lbCiudadInmuebleView);
+            RatingBar rbValoracion = inmuebleView.findViewById(R.id.rbValoracionInmuebleView);
+
+            txtDireccion.setText(inmueble.getDireccion());
+            txtNumero.setText(inmueble.getNumero());
+            txtCiudad.setText(inmueble.getCiudad());
+            rbValoracion.setRating(inmueble.getValoracion());
+
+        }
     }
 }
