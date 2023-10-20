@@ -41,6 +41,7 @@ public class AddInmuebleActivity extends AppCompatActivity {
                     bundle.putSerializable("INMUEBLE", inmueble);
                     intent.putExtras(bundle);
                     setResult(RESULT_OK, intent);
+                    finish();
                 }
             }
         });

@@ -83,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
             RatingBar rbValoracion = inmuebleView.findViewById(R.id.rbValoracionInmuebleView);
 
             txtDireccion.setText(inmueble.getDireccion());
-            txtNumero.setText(inmueble.getNumero());
+            txtNumero.setText(String.valueOf(inmueble.getNumero()));
             txtCiudad.setText(inmueble.getCiudad());
             rbValoracion.setRating(inmueble.getValoracion());
+
+            binding.contentMain.contenedorMain.addView(inmuebleView);
 
         }
     }
