@@ -3,8 +3,6 @@ package montacer.elfazazi.ejerc4;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -27,7 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private ActivityResultLauncher<Intent> launcherInmuebles;
+    private ActivityResultLauncher<Intent> launcherEditInmuebles;
     private ArrayList<Inmueble> listaInmuebles;
+
+    private int posicion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,26 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        launcherEditInmuebles = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == RESULT_OK){
+                            if (result.getData() != null && result.getData().getExtras() != null) {
+                                //pulsaron editar
+                                Inmueble inmueble = (Inmueble) result.getData().getExtras().getSerializable("INMUEBLE");
+                                listaInmuebles.set(posicion, inmueble );
+                                mostrarInmueble();
+                            }else{
+                                //pulsaron borrar
+                                listaInmuebles.remove(posicion);
+                                mostrarInmueble();
+                            }
+                        }
+                    }
+                }
+            );
     }
 
     private void mostrarInmueble() {
@@ -87,8 +108,26 @@ public class MainActivity extends AppCompatActivity {
             txtCiudad.setText(inmueble.getCiudad());
             rbValoracion.setRating(inmueble.getValoracion());
 
-            binding.contentMain.contenedorMain.addView(inmuebleView);
+            inmuebleView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //enviar alumno
+                    Intent intent = new Intent(MainActivity.this, EditInmuebleActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("INMUEBLE", inmueble);
+                    intent.putExtras(bundle);
 
+                    posicion = listaInmuebles.indexOf(inmueble);
+                    //recibir alumno modificado o la orden de eliminar
+                    launcherEditInmuebles.launch(intent); //para enviar informacion es el intent y el bundle con un new,
+                    //para recibirlo en la nueva actividad es con un intent y bundle pero con get en lugar de new; y
+                    //para tratar la informacion que devuelva la actvidad es con el launcher.
+                }
+            });
+
+            //añadimos la nueva vista alumnoView al content main que al principio le habiamos borrado todas las vistas
+            binding.contentMain.contenedorMain.addView(inmuebleView);
         }
+
     }
 }

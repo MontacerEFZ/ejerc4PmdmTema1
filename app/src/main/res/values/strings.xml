@@ -5,4 +5,8 @@
     <string name="ciudad">Ciudad</string>
     <string name="provincia">Provincia</string>
     <string name="cp">Cp</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="crear">Crear</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

@@ -20,7 +20,7 @@ public class AddInmuebleActivity extends AppCompatActivity {
         binding = ActivityAddInmuebleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btnCancelarInmueble.setOnClickListener(new View.OnClickListener() {
+        binding.btnCancelarAddInmueble.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setResult(RESULT_CANCELED);
@@ -28,7 +28,7 @@ public class AddInmuebleActivity extends AppCompatActivity {
             }
         });
 
-        binding.btnCrearInmueble.setOnClickListener(new View.OnClickListener() {
+        binding.btnCrearAddInmueble.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Inmueble inmueble = crearInmueble();
@@ -48,32 +48,32 @@ public class AddInmuebleActivity extends AppCompatActivity {
     }
 
     private Inmueble crearInmueble() {
-        if (binding.txtDireccionInmueble.getText().toString().isEmpty()){
+        if (binding.txtDireccionAddInmueble.getText().toString().isEmpty()){
             return null;
         }
-        if (binding.txtNumeroInmueble.getText().toString().isEmpty()){
+        if (binding.txtNumeroAddInmueble.getText().toString().isEmpty()){
             return null;
         }
-        if (binding.txtCiudadInmueble.getText().toString().isEmpty()){
+        if (binding.txtCiudadAddInmueble.getText().toString().isEmpty()){
             return null;
         }
-        if (binding.txtProvinciaInmueble.getText().toString().isEmpty()){
+        if (binding.txtProvinciaAddInmueble.getText().toString().isEmpty()){
             return null;
         }
-        if (binding.txtCpInmueble.getText().toString().isEmpty()){
+        if (binding.txtCpAddInmueble.getText().toString().isEmpty()){
             return null;
         }
-        if (binding.txtCpInmueble.getText().toString().isEmpty()){
+        if (binding.txtCpAddInmueble.getText().toString().isEmpty()){
             return null;
         }
 
-        int numero = Integer.parseInt(binding.txtNumeroInmueble.getText().toString());
-        int cp = Integer.parseInt(binding.txtCpInmueble.getText().toString());
+        int numero = Integer.parseInt(binding.txtNumeroAddInmueble.getText().toString());
+        int cp = Integer.parseInt(binding.txtCpAddInmueble.getText().toString());
 
-        Inmueble inmueble = new Inmueble(binding.txtDireccionInmueble.getText().toString(),
-                numero, binding.txtCiudadInmueble.getText().toString(),
-                binding.txtProvinciaInmueble.getText().toString(),
-                cp, binding.rbValoracionInmueble.getRating());
+        Inmueble inmueble = new Inmueble(binding.txtDireccionAddInmueble.getText().toString(),
+                numero, binding.txtCiudadAddInmueble.getText().toString(),
+                binding.txtProvinciaAddInmueble.getText().toString(),
+                cp, binding.rbValoracionAddInmueble.getRating());
 
         return inmueble;
     }

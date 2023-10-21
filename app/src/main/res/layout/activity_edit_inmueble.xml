@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddInmuebleActivity">
+    tools:context=".EditInmuebleActivity">
 
     <EditText
-        android:id="@+id/txtDireccionAddInmueble"
+        android:id="@+id/txtDireccionEditInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -18,7 +18,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/txtNumeroAddInmueble"
+        android:id="@+id/txtNumeroEditInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -28,7 +28,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/txtCiudadAddInmueble"
+        android:id="@+id/txtCiudadEditInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -38,7 +38,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/txtProvinciaAddInmueble"
+        android:id="@+id/txtProvinciaEditInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -48,7 +48,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/txtCpAddInmueble"
+        android:id="@+id/txtCpEditInmueble"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -58,7 +58,7 @@
         android:inputType="text" />
 
     <RatingBar
-        android:id="@+id/rbValoracionAddInmueble"
+        android:id="@+id/rbValoracionEditInmueble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp" />
@@ -71,20 +71,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnCancelarAddInmueble"
+            android:id="@+id/btnEliminarEditInmueble"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/cancelar"
-            android:text="Cancelar" />
+            android:hint="@string/eliminar"
+            android:text="Eliminar" />
 
         <Button
-            android:id="@+id/btnCrearAddInmueble"
+            android:id="@+id/btnEditarEditInmueble"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:hint="@string/crear"
-            android:text="Crear" />
+            android:hint="@string/editar"
+            android:text="Editar" />
     </LinearLayout>
 
 </LinearLayout>
