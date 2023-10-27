@@ -111,21 +111,21 @@ public class MainActivity extends AppCompatActivity {
             inmuebleView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //enviar alumno
+                    //enviar inmueble
                     Intent intent = new Intent(MainActivity.this, EditInmuebleActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("INMUEBLE", inmueble);
                     intent.putExtras(bundle);
 
                     posicion = listaInmuebles.indexOf(inmueble);
-                    //recibir alumno modificado o la orden de eliminar
+                    //recibir inmueble modificado o la orden de eliminar
                     launcherEditInmuebles.launch(intent); //para enviar informacion es el intent y el bundle con un new,
                     //para recibirlo en la nueva actividad es con un intent y bundle pero con get en lugar de new; y
                     //para tratar la informacion que devuelva la actvidad es con el launcher.
                 }
             });
 
-            //añadimos la nueva vista alumnoView al content main que al principio le habiamos borrado todas las vistas
+            //añadimos la nueva vista inmuebleView al content main que al principio le habiamos borrado todas las vistas
             binding.contentMain.contenedorMain.addView(inmuebleView);
         }
 
