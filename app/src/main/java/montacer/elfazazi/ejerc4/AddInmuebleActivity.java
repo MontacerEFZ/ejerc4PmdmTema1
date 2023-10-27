@@ -63,9 +63,6 @@ public class AddInmuebleActivity extends AppCompatActivity {
         if (binding.txtCpAddInmueble.getText().toString().isEmpty()){
             return null;
         }
-        if (binding.txtCpAddInmueble.getText().toString().isEmpty()){
-            return null;
-        }
 
         int numero = Integer.parseInt(binding.txtNumeroAddInmueble.getText().toString());
         int cp = Integer.parseInt(binding.txtCpAddInmueble.getText().toString());
